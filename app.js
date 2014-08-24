@@ -20,9 +20,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Database setup
 //var databaseUrl = 'portfolioSiteDB';
-var databaseUrl = 'mongodb://admin:1jVwEA3lZZxE@localhost/portfoliositejs';
+// default to a 'localhost' configuration:
+var connection_string = '127.0.0.1:27017/portfolioSiteDB';
+// if OPENSHIFT env variables are present, use the available connection info:
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+    connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+        process.env.OPENSHIFT_APP_NAME;
+}
 var collections = ['projects', 'projectInfo'];
-var db = require("mongojs").connect(databaseUrl, collections);
+var db = require("mongojs").connect(connection_string, collections);
 console.log("Got the DB connection");
 
 // Mailer setup
