@@ -4,8 +4,8 @@
 
 var app = require('./app');
 
-var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
-var port = process.env.OPENSHIFT_INTERNAL_PORT || 8080;
+var ipaddr = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 console.log('PORT: '+port+' IP ADDR: '+ipaddr);
 
