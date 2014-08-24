@@ -29,15 +29,16 @@ pageControllers.controller('ContactController', ['$scope', function($scope) {
 
 
 /** Function representing standalone header controller **/
-function HeaderController($scope, $location)
+function HeaderController($scope, $location, projectService)
 {
     // Allow correct navbar item to be selected
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
     };
 
-    // Get projects from the project service and set to scope: (hardcoded for now)
-    $scope.projects = [{name: "Cool Project", uri: "projects/coolproj"},
-        {name: "Awesome Project", uri: "projects/awesome"},
-        {name: "Sick Project", uri: "projects/sickproj"}];
+    // Asynchronously update project details
+    projectService.getProjectInfo(function(projects) {
+        $scope.projects = projects;
+    });
+
 }

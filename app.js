@@ -5,9 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -20,6 +17,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Database setup
+var databaseUrl = 'portfolioSiteDB';
+var collections = ['projects', 'projectInfo'];
+var db = require("mongojs").connect(databaseUrl, collections);
+console.log("Got the DB connection");
+
+// JSON API
+api = require('./routes/api')(db);
+app.get('/api/projectinfo', api.projectInfo);
+app.get('/api/projects', api.projects);
+app.get('/api/project/:projectName', api.project);
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
