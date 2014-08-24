@@ -19,7 +19,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Database setup
-var databaseUrl = 'portfolioSiteDB';
+//var databaseUrl = 'portfolioSiteDB';
+var databaseUrl = 'mongodb://admin:1jVwEA3lZZxE@localhost/portfoliositejs';
 var collections = ['projects', 'projectInfo'];
 var db = require("mongojs").connect(databaseUrl, collections);
 console.log("Got the DB connection");
