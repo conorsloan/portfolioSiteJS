@@ -5,12 +5,17 @@
     </div>
 
 
+    <!-- Display any messages here -->
+    <div class="alert alert-success" ng-show="successMessage" role="alert">{{successMessage}}</div>
+    <div class="alert alert-danger" ng-show="errorMessage" role="alert">{{errorMessage}}</div>
+    <!-- End messages -->
+
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span2">
-                        <form class="form-horizontal" action="/contact/addMessage" method="post">
+                        <form class="form-horizontal" class="simple-form">
                             <fieldset>
 
                                 <!-- Form Name -->
@@ -20,7 +25,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="name">Name</label>
                                     <div class="col-md-5">
-                                        <input id="name" name="name" placeholder="Somebody somebodyson" class="form-control input-md" required="" type="text">
+                                        <input id="name" ng-model="message.name" name="name" placeholder="Somebody somebodyson" class="form-control input-md" required="" type="text">
 
                                     </div>
                                 </div>
@@ -29,7 +34,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="email">Email</label>
                                     <div class="col-md-5">
-                                        <input id="email" name="email" placeholder="somebody@somewhere.com" class="form-control input-md" required="" type="text">
+                                        <input id="email" ng-model="message.email" name="email" placeholder="somebody@somewhere.com" class="form-control input-md" required="" type="text">
 
                                     </div>
                                 </div>
@@ -38,7 +43,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="subject">Subject</label>
                                     <div class="col-md-5">
-                                        <input id="subject" name="subject" placeholder="Something interesting.." class="form-control input-md" required="" type="text">
+                                        <input id="subject" ng-model="message.subject" name="subject" placeholder="Something interesting.." class="form-control input-md" required="" type="text">
 
                                     </div>
                                 </div>
@@ -47,7 +52,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="message">Message</label>
                                     <div class="col-md-4">
-                                        <textarea class="form-control" id="message" name="message">A message...</textarea>
+                                        <textarea class="form-control" ng-model="message.message" id="message" required="" name="message">A message...</textarea>
                                     </div>
                                 </div>
 
@@ -55,7 +60,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="submit"></label>
                                     <div class="col-md-4">
-                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Send</button>
+                                        <button ng-click="send(message)" id="submit" name="submit" class="btn btn-primary">Send</button>
                                     </div>
                                 </div>
 

@@ -1,6 +1,72 @@
 <div class="container" role="main" style="margin-top: 2%">
 
     <div class="page-header">
-        <h1>Project Name <small>Project tagline</small></h1>
+        <h1>{{project.name}} <small>{{project.tagLine}}</small></h1>
+    </div>
+
+    <div id="Carousel" class="carousel slide" style="margin-bottom: 2%">
+        <div class="carousel-inner" style="max-height: 400px" ng-repeat="image in project.largeImage">
+            <div class="item" ng-class="{ 'active' : $index == 0 }">
+                <img ng-src="{{image}}" class="img-responsive" >
+            </div>
+        </div>
+
+
+        <span class="left carousel-control" data-target="#Carousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </span>
+        <span class="right carousel-control" data-target="#Carousel" data-slide="next">
+           <span class="glyphicon glyphicon-chevron-right"></span>
+        </span>
+    </div>
+
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseOne">
+                        Project Description
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    {{project.longDescription}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseTwo">
+                        Technologies Used
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{project.techUsed}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseThree">
+                        Repository Link
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a href="{{project.projectRepo}}">{{project.name}}</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

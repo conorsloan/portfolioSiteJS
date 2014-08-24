@@ -3,4 +3,18 @@
     <div class="page-header">
         <h1>Projects <small>An overview of my portfolio</small></h1>
     </div>
+
+    <div ng-repeat="project in projects">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading"><a style="text-decoration: none; color: black" href="#/projects/{{project.id}}" >{{project.name}} </a><span class="text-muted">{{project.tagLine}}</span></h2>
+                <p class="lead">{{project.shortDescription}}</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" ng-src="{{project.smallImage}}" alt="{{project.name}}">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+
 </div>

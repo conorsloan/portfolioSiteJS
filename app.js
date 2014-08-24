@@ -24,11 +24,24 @@ var collections = ['projects', 'projectInfo'];
 var db = require("mongojs").connect(databaseUrl, collections);
 console.log("Got the DB connection");
 
+// Mailer setup
+var nodemailer = require('nodemailer');
+// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'conorsloansite@gmail.com',
+        pass: 'passwd01'
+    }
+});
+
+
 // JSON API
-api = require('./routes/api')(db);
+api = require('./routes/api')(db, transporter);
 app.get('/api/projectinfo', api.projectInfo);
 app.get('/api/projects', api.projects);
 app.get('/api/project/:projectName', api.project);
+app.all('/api/contact/sendMessage', api.sendMessage);
 
 
 /// catch 404 and forward to error handler

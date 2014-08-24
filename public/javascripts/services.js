@@ -10,7 +10,14 @@ services.factory('projectService', ['$http', function($http) {
 
         getProjectInfo : function(callback) {
             $http.get('/api/projectinfo').success(callback);
-        }
+        },
 
+        getAllProjects : function(callback) {
+            $http.get('/api/projects').success(callback);
+        },
+
+        getProject : function(name, callback) {
+          $http.get('/api/project/'+name).success(callback);
+        }
     };
 }]);
