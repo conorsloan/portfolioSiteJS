@@ -6,11 +6,78 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title</h3>
-        </div>
         <div class="panel-body">
-            Panel content
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span2">
+                        <form class="form-horizontal" action="/contact/addMessage" method="post">
+                            <fieldset>
+
+                                <!-- Form Name -->
+                                <legend>Send a Message</legend>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="name">Name</label>
+                                    <div class="col-md-5">
+                                        <input id="name" name="name" placeholder="Somebody somebodyson" class="form-control input-md" required="" type="text">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="email">Email</label>
+                                    <div class="col-md-5">
+                                        <input id="email" name="email" placeholder="somebody@somewhere.com" class="form-control input-md" required="" type="text">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="subject">Subject</label>
+                                    <div class="col-md-5">
+                                        <input id="subject" name="subject" placeholder="Something interesting.." class="form-control input-md" required="" type="text">
+
+                                    </div>
+                                </div>
+
+                                <!-- Textarea -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="message">Message</label>
+                                    <div class="col-md-4">
+                                        <textarea class="form-control" id="message" name="message">A message...</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="submit"></label>
+                                    <div class="col-md-4">
+                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Send</button>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="span10">
+                        <div class="well" style="margin-left: 1%; margin-top: 5%; height:100%; text-align: center">
+                            <p>
+                            <h2>For Inquiries Please Call: </h2>
+                            <h3><span><a href="tel:07769155568" style="text-decoration:none;">07769155568</a></span></h3>
+                            </p>
+                            <p>
+                            <h2>Or you can email me at: </h2>
+                            <h3><span><a href="mailto:c.sloan7597@googlemail.com" style="text-decoration:none;">c.sloan7597<br>@googlemail.com</a></span></h3>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 

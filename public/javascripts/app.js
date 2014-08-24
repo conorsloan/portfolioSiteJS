@@ -7,7 +7,7 @@
 angular.module('portfolioSite', [
     'ngRoute',
     //'portfolioSite.filters',
-    //'portfolioSite.services',
+    'portfolioSite.services',
     //'portfolioSite.directives',
     'portfolioSite.controllers'
 ]).
