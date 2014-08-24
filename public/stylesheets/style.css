@@ -1,0 +1,124 @@
+.navbar-brand {
+    max-width: 50%;
+    max-height: 50px;
+    line-height: 50px;
+    margin-top: -15px;
+}
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+    padding: 60px 15px 0;
+}
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+
+/* Create square icons, white logo on colored background */
+
+#social-bar .icon {
+    color: white;
+    border-radius: 4px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    min-width: 27px;
+    line-height: 27px;
+    text-align: center;
+}
+
+#social-bar a {
+    margin-right: 5px;
+    padding: 5px; /* Increase hit rectangle for touch devices */
+}
+
+#social-bar a:first-child {
+    padding-left: 0;
+}
+
+/* Set icon color related to the service */
+
+#social-bar a span {
+    margin-left: 5px;
+}
+
+#social-bar .icon-rss {
+    background: #e5842f;
+}
+
+#social-bar .icon-facebook {
+    background: #3B5998;
+}
+
+#social-bar .icon-twitter {
+    background: #00ACED;
+}
+
+#social-bar .icon-google-plus {
+    background: #E14107;
+}
+
+/* Don't underline icon etc. */
+#social-bar a:hover {
+    text-decoration: none;
+}
+
+#social-bar a:hover span {
+    text-decoration: underline;
+    color: #333333; /* Match icon highlight color */
+}
+
+/* Animate mouse hover */
+#social-bar a .icon {
+    transition: background 0.5s;
+}
+
+#social-bar a:hover .icon {
+    background: #333333;
+    transition: background 0.5s;
+}
+
+/**  For collapsable panels
+-------------------------------------
+**/
+.panel-heading a:after {
+    content: "\e114";
+    float: right;
+    color: grey;
+}
+.panel-heading a.collapsed:after {
+    content: "\e080";
+}
+

@@ -1,0 +1,15 @@
+doctype html
+html(ng-app='portfolioSite')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js')
+    script(src='javascripts/app.js')
+    script(src='javascripts/services.js')
+    script(src='javascripts/controllers.js')
+    script(src='javascripts/filters.js')
+    script(src='javascripts/directives.js')
+  body
+    block content
+
