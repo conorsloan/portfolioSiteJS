@@ -2,7 +2,7 @@
  * Created by conor on 24/08/2014.
  */
 
-var app = require('app.js');
+var app = require('./app');
 
 var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
 var port = process.env.OPENSHIFT_INTERNAL_PORT || 8080;
