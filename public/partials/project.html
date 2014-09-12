@@ -4,10 +4,10 @@
         <h1>{{project.name}} <small>{{project.tagLine}}</small></h1>
     </div>
 
-    <div id="Carousel" class="carousel slide" style="margin-bottom: 2%">
-        <div class="carousel-inner" style="max-height: 400px" ng-repeat="image in project.largeImage">
-            <div class="item" ng-class="{ 'active' : $index == 0 }">
-                <img ng-src="{{image}}" class="img-responsive" >
+    <div id="Carousel" class="carousel slide" style="margin-bottom: 2%; height: 400px; max-height: 400px;">
+        <div class="carousel-inner" style="height: 100%" >
+            <div class="item" ng-repeat="image in project.largeImage" ng-class="{ 'active' : $index == 0 }">
+                <img ng-src="{{image}}" class="img-responsive" style="height:100%; width: 100%" >
             </div>
         </div>
 

@@ -122,3 +122,9 @@ code {
     content: "\e080";
 }
 
+
+.carousel-img img {
+    width: auto;
+    height: 100px;
+    max-height: 100px;
+}

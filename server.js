@@ -7,7 +7,7 @@ var app = require('./app');
 var ipaddr = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
-console.log('PORT: '+port+' IP ADDR: '+ipaddr);
+console.log('PORT: ' + port + ' IP ADDR: ' + ipaddr);
 
 app.set('port', port);
 app.set('ipaddr', ipaddr);
