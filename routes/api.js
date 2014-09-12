@@ -43,7 +43,7 @@ module.exports = function (db, mailTransporter) {
                 from: req.body.name + ' (' + req.body.email + ')', // sender address
                 to: 'c.sloan7597@googlemail.com', // list of receivers
                 subject: req.body.subject, // Subject line
-                text: req.body.message // plaintext body
+                text: req.body.message + ' --> From: ' + req.body.name + ' (' + req.body.email + ')'// plaintext body
             };
 
             // send mail with defined transport object

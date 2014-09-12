@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span2">
-                        <form class="form-horizontal" class="simple-form">
+                        <form name="form" class="form-horizontal" class="simple-form">
                             <fieldset>
 
                                 <!-- Form Name -->
@@ -23,44 +23,44 @@
 
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Name</label>
+                                    <label class="col-md-4 control-label">Name</label>
                                     <div class="col-md-5">
-                                        <input id="name" ng-model="message.name" name="name" placeholder="Somebody somebodyson" class="form-control input-md" required="" type="text">
+                                        <input id="name" ng-model="message.name" name="name" placeholder="Somebody somebodyson" class="form-control input-md" required type="text">
 
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="email">Email</label>
+                                    <label class="col-md-4 control-label">Email</label>
                                     <div class="col-md-5">
-                                        <input id="email" ng-model="message.email" name="email" placeholder="somebody@somewhere.com" class="form-control input-md" required="" type="text">
+                                        <input id="email" ng-model="message.email" name="email" placeholder="somebody@somewhere.com" class="form-control input-md" required type="text">
 
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="subject">Subject</label>
+                                    <label class="col-md-4 control-label">Subject</label>
                                     <div class="col-md-5">
-                                        <input id="subject" ng-model="message.subject" name="subject" placeholder="Something interesting.." class="form-control input-md" required="" type="text">
+                                        <input id="subject" ng-model="message.subject" name="subject" placeholder="Something interesting.." class="form-control input-md" required type="text">
 
                                     </div>
                                 </div>
 
                                 <!-- Textarea -->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="message">Message</label>
+                                    <label class="col-md-4 control-label">Message</label>
                                     <div class="col-md-4">
-                                        <textarea class="form-control" ng-model="message.message" id="message" required="" name="message">A message...</textarea>
+                                        <textarea class="form-control" ng-model="message.message" id="message" required name="message">A message...</textarea>
                                     </div>
                                 </div>
 
                                 <!-- Button -->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="submit"></label>
+                                    <label class="col-md-4 control-label"></label>
                                     <div class="col-md-4">
-                                        <button ng-click="send(message)" id="submit" name="submit" class="btn btn-primary">Send</button>
+                                        <button ng-click="send(form)" class="btn btn-primary">Send</button>
                                     </div>
                                 </div>
 

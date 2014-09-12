@@ -46,17 +46,22 @@ pageControllers.controller('CvController', ['$scope', function ($scope) {
 pageControllers.controller('ContactController', ['$scope', '$http', function ($scope, $http) {
     'use strict';
     console.log('Controller: Contact');
-    $scope.send = function (message) {
-        $http.post('/api/contact/sendMessage', message)
-            .success(function (response) {
-                if (response.status === 'SUCCESS') {
-                    $scope.successMessage = response.message;
-                    $scope.message = {};
-                } else if (response.status === 'ERROR') {
-                    $scope.errorMessage = response.message;
-                }
-            });
-    };
+    $scope.send = function (messageForm) {
+            if (messageForm.$valid) {
+                $http.post('/api/contact/sendMessage', $scope.message)
+                    .success(function (response) {
+                        if (response.status === 'SUCCESS') {
+                            $scope.successMessage = response.message;
+                            $scope.errorMessage = null;
+                            $scope.message = {};
+                        } else if (response.status === 'ERROR') {
+                            $scope.errorMessage = response.message;
+                        }
+                    });
+            } else {
+                $scope.errorMessage = 'Error: Invalid form input - see messages for details';
+            }
+        };
 }]);
 
 
