@@ -55,6 +55,7 @@ app.get('/api/projectinfo', api.projectInfo);
 app.get('/api/projects', api.projects);
 app.get('/api/project/:projectName', api.project);
 app.all('/api/contact/sendMessage', api.sendMessage);
+app.get('/api/about', api.aboutMe);
 
 
 /// catch 404 and forward to error handler

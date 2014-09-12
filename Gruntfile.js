@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             },
             client: {
                 src: [
-                    'public/js/*.js'
+                    'public/javascripts/*.js'
                 ],
                 directives: {
                     browser: true,
@@ -53,8 +53,8 @@ module.exports = function (grunt) {
                     nomen: true,
                     unparam : true,
                     predef: [
-                        'define',
-                        'require'
+                        'angular',
+                        'console'
                     ]
                 }
             }

@@ -32,6 +32,10 @@ module.exports = function (db, mailTransporter) {
             projectCollection.find({id: projectName}).pipe(JSONStream.stringify()).pipe(res);
         },
 
+        aboutMe : function (req, res) {
+            res.send('About me!');
+        },
+
         // Send an email message, given the message submitted on the site
         sendMessage : function (req, res) {
             var mailOptions = {

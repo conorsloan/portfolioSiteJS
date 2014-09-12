@@ -2,7 +2,7 @@
  * Created by conor on 23/08/2014.
  */
 
-'use strict';
+
 // Declare app level module which depends on filters, and services
 angular.module('portfolioSite', [
     'ngRoute',
@@ -11,7 +11,10 @@ angular.module('portfolioSite', [
     //'portfolioSite.directives',
     'portfolioSite.controllers'
 ]).
-    config(['$routeProvider', function($routeProvider) {
+    config(['$routeProvider', function ($routeProvider) {
+
+        'use strict';
+
         $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeController', title: 'Home'});
         $routeProvider.when('/about', {templateUrl: 'partials/about.html', controller: 'AboutController', title: 'About Me'});
         $routeProvider.when('/projects', {templateUrl: 'partials/projects.html', controller: 'ProjectsController', title: 'Projects'});
@@ -21,8 +24,11 @@ angular.module('portfolioSite', [
         $routeProvider.otherwise({redirectTo: '/home'});
     }])
 
-    .run(function($rootScope) {
-        $rootScope.$on("$routeChangeSuccess", function(event, currentRoute, previousRoute) {
+    .run(function ($rootScope) {
+
+        'use strict';
+
+        $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
             $rootScope.title = currentRoute.title;
         });
     });
