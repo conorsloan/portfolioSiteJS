@@ -16,7 +16,7 @@ pageControllers.controller('AboutController', ['$scope', 'aboutService', functio
     console.log('Controller: About');
     aboutService.getAboutMe(function (aboutMe) {
         console.log('About Me');
-        $scope.aboutMe = aboutMe.content || "Data not found, sorry!";
+        $scope.aboutMe = aboutMe.content || ["Data not found, sorry!"];
     });
 }]);
 
