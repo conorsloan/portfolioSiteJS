@@ -15,6 +15,7 @@ pageControllers.controller('AboutController', ['$scope', 'aboutService', functio
     'use strict';
     console.log('Controller: About');
     aboutService.getAboutMe(function (aboutMe) {
+        console.log('About Me');
         $scope.aboutMe = aboutMe;
     });
 }]);
