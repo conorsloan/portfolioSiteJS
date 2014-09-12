@@ -34,7 +34,7 @@ module.exports = function (db, mailTransporter) {
 
         aboutMe : function (req, res) {
             var contentCollection = db.collection('content');
-            contentCollection.find({'id' : 'about'}).pipe(JSONStream.stringify()).pipe(res);
+            contentCollection.find({'id' : 'about'}).pipe(JSONStream.stringify(false)).pipe(res);
         },
 
         // Send an email message, given the message submitted on the site
