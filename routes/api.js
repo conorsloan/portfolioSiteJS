@@ -33,7 +33,8 @@ module.exports = function (db, mailTransporter) {
         },
 
         aboutMe : function (req, res) {
-            res.send('About me!');
+            var contentCollection = db.collection('content');
+            contentCollection.find({'id' : 'about'}).pipe(JSONStream.stringify()).pipe(res);
         },
 
         // Send an email message, given the message submitted on the site
