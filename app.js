@@ -6,8 +6,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var compression = require('compression');
 
 var app = express();
+
+// New call to compress content
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,8 +22,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
+
+var oneDay = 86400000;
+
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: oneDay }));
+app.use(express.static(path.join(__dirname, 'bower_components'), { maxAge: oneDay }));
 
 // Database setup
 //var databaseUrl = 'portfolioSiteDB';

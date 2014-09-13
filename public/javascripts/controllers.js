@@ -47,21 +47,21 @@ pageControllers.controller('ContactController', ['$scope', '$http', function ($s
     'use strict';
     console.log('Controller: Contact');
     $scope.send = function (messageForm) {
-            if (messageForm.$valid) {
-                $http.post('/api/contact/sendMessage', $scope.message)
-                    .success(function (response) {
-                        if (response.status === 'SUCCESS') {
-                            $scope.successMessage = response.message;
-                            $scope.errorMessage = null;
-                            $scope.message = {};
-                        } else if (response.status === 'ERROR') {
-                            $scope.errorMessage = response.message;
-                        }
-                    });
-            } else {
-                $scope.errorMessage = 'Error: Invalid form input - see messages for details';
-            }
-        };
+        if (messageForm.$valid) {
+            $http.post('/api/contact/sendMessage', $scope.message)
+                .success(function (response) {
+                    if (response.status === 'SUCCESS') {
+                        $scope.successMessage = response.message;
+                        $scope.errorMessage = null;
+                        $scope.message = {};
+                    } else if (response.status === 'ERROR') {
+                        $scope.errorMessage = response.message;
+                    }
+                });
+        } else {
+            $scope.errorMessage = 'Error: Invalid form input - see messages for details';
+        }
+    };
 }]);
 
 
