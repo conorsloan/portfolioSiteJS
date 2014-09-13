@@ -19,6 +19,7 @@
                     <p>Here is a short description of my previous jobs in the Software industry.</p>
                     <div name="job" ng-repeat="job in jobs" ng-class="{ 'well' : job.currentJob}">
                         <p ng-show="job.currentJob" ><span class=" glyphicon glyphicon-asterisk" ></span> [Current Job]</p>
+                        <img ng-src="{{job.employerIcon}}" class="img-responsive" style="float:right" >
                         <div class="page-header" style="margin-top: 5%; margin-bottom : 4%">
                             <h4>{{job.jobTitle}} @ {{job.company}} <small> - {{job.startDate}} to {{job.endDate}}
                                 ({{job.location}})</small></h4>

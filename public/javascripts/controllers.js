@@ -42,14 +42,14 @@ pageControllers.controller('CvController', ['$scope', 'cvService', function ($sc
     'use strict';
     console.log('Controller: CV ');
     cvService.getJobs(function (response) {
-        $scope.jobs = response.jobs.sort (function (a, b) {
-                if (a.position > b.position) {
-                    return -1;
-                }
-                if (a.position < b.position) {
-                    return 1;
-                }
-                return 0;
+        $scope.jobs = response.jobs.sort(function (a, b) {
+            if (a.position > b.position) {
+                return -1;
+            }
+            if (a.position < b.position) {
+                return 1;
+            }
+            return 0;
         });
     });
     cvService.getTechUsed(function (response) {
@@ -91,4 +91,4 @@ function HeaderController($scope, $location, projectService) {
     projectService.getProjectInfo(function (projects) {
         $scope.projects = projects;
     });
-};
+}
