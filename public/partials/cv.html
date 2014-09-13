@@ -17,13 +17,21 @@
             <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <p>Here is a short description of my previous jobs in the Software industry.</p>
-                    <div name="job" ng-repeat="job in jobs">
-                        <div class="page-header">
-                            <h4>{{job.jobTitle}} at {{job.company}} <small>({{job.location}})</small></h4>
+                    <div name="job" ng-repeat="job in jobs" ng-class="{ 'well' : job.currentJob}">
+                        <p ng-show="job.currentJob" ><span class=" glyphicon glyphicon-asterisk" ></span> [Current Job]</p>
+                        <div class="page-header" style="margin-top: 5%; margin-bottom : 4%">
+                            <h4>{{job.jobTitle}} @ {{job.company}} <small> - {{job.startDate}} to {{job.endDate}}
+                                ({{job.location}})</small></h4>
                         </div>
                         <p>
                             <b>Description:</b><br>
                             {{job.description}}
+                        </p>
+                        <p>
+                            <b>Responsibilities:</b><br>
+                            <ul>
+                                <li ng-repeat="responsibility in job.responsibilities">{{responsibility}}</li>
+                            </ul>
                         </p>
                         <p>
                             <b>Tech Used:</b><br>
@@ -60,8 +68,8 @@
                 </h4>
             </div>
             <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
-            <div style="float : left; width: 48%; margin-right: 3%">
+            <div class="panel-body" class="col-md-12">
+            <div class="col-md-6">
                 <p><b>University: </b></p>
                 <table class="table table-bordered" style="width : 100%">
                     <tr>
@@ -226,7 +234,7 @@
                     </tr>
                 </table>
             </div>
-            <div style="float : left; width: 48%">
+            <div class="col-md-6">
                 <p><b>A Levels: </b></p>
                 <table class="table table-bordered">
                     <tr>
