@@ -37,10 +37,7 @@ module.exports = function (grunt) {
                     unparam : true
                 },
                 options: {
-                    edition: 'latest',
-                    log: 'out/jslint/server-lint.log',
-                    errorsOnly: true,
-                    failOnError: false // because one or two unavoidable errors
+                    failOnError: true // because one or two unavoidable errors
                 }
             },
             client: {
