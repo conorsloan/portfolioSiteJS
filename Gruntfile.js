@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                     unparam : true
                 },
                 options: {
-                    failOnError: true // because one or two unavoidable errors
+                    failOnError: true
                 }
             },
             client: {
@@ -53,6 +53,9 @@ module.exports = function (grunt) {
                         'angular',
                         'console'
                     ]
+                },
+                options: {
+                    failOnError: true
                 }
             }
         },

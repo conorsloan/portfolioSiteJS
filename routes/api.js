@@ -15,6 +15,7 @@ module.exports = function (db, mailTransporter) {
 
     return {
 
+        // Projects
         projectInfo: function (req, res) {
             var projectCollection = db.collection('projectInfo');
             projectCollection.find({}).pipe(JSONStream.stringify()).pipe(res);
@@ -32,10 +33,28 @@ module.exports = function (db, mailTransporter) {
             projectCollection.find({id: projectName}).pipe(JSONStream.stringify()).pipe(res);
         },
 
+
+        // Site Content
         aboutMe : function (req, res) {
             var contentCollection = db.collection('content');
             contentCollection.find({'id' : 'about'}).pipe(JSONStream.stringify(false)).pipe(res);
         },
+
+
+        // CV
+
+        employmentHistory : function (req, res) {
+            var cv = db.collection('CV');
+            cv.find({'id' : 'employmentHistory'},
+                {'jobs' : 1, _id : 0}).pipe(JSONStream.stringify(false)).pipe(res);
+        },
+
+        techExperience : function (req, res) {
+            var cv = db.collection('CV');
+            cv.find({'id' : 'technologyExperience'},
+                {'techs' : 1, _id : 0}).pipe(JSONStream.stringify(false)).pipe(res);
+        },
+
 
         // Send an email message, given the message submitted on the site
         sendMessage : function (req, res) {

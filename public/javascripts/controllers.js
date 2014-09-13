@@ -38,9 +38,15 @@ pageControllers.controller('ProjectController', ['$scope', '$location', 'project
     });
 }]);
 
-pageControllers.controller('CvController', ['$scope', function ($scope) {
+pageControllers.controller('CvController', ['$scope', 'cvService', function ($scope, cvService) {
     'use strict';
     console.log('Controller: CV');
+    cvService.getJobs(function (response) {
+        $scope.jobs = response.jobs;
+    });
+    cvService.getTechUsed(function (response) {
+        $scope.techsUsed = response.techs;
+    });
 }]);
 
 pageControllers.controller('ContactController', ['$scope', '$http', function ($scope, $http) {
@@ -64,7 +70,6 @@ pageControllers.controller('ContactController', ['$scope', '$http', function ($s
     };
 }]);
 
-
 /** Function representing standalone header controller **/
 function HeaderController($scope, $location, projectService) {
     'use strict';
@@ -78,5 +83,4 @@ function HeaderController($scope, $location, projectService) {
     projectService.getProjectInfo(function (projects) {
         $scope.projects = projects;
     });
-
-}
+};

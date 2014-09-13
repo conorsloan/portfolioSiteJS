@@ -16,7 +16,20 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-                    ...
+                    <p>Here is a short description of my previous jobs in the Software industry.</p>
+                    <div name="job" ng-repeat="job in jobs">
+                        <div class="page-header">
+                            <h4>{{job.jobTitle}} at {{job.company}} <small>({{job.location}})</small></h4>
+                        </div>
+                        <p>
+                            <b>Description:</b><br>
+                            {{job.description}}
+                        </p>
+                        <p>
+                            <b>Tech Used:</b><br>
+                            {{job.techUsed}}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,7 +44,9 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
                 <div class="panel-body">
-                    ...
+                    <div name="tech" ng-repeat="tech in techsUsed" style="float : left; margin: 10px">
+                        <p><b>{{tech.name}}</b> -  {{tech.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,9 +60,320 @@
                 </h4>
             </div>
             <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
-                    ...
-                </div>
+            <div class="panel-body">
+            <div style="float : left; width: 48%; margin-right: 3%">
+                <p><b>University: </b></p>
+                <table class="table table-bordered" style="width : 100%">
+                    <tr>
+                        <th>
+                            Module Name
+                        </th>
+                        <th>
+                            Grade
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Final Year Project - An Evaluation of OpenStack
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Parallel Scientific Computing
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Natural Language Processing
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Biological & Bio-Inspired Computation
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Distributed Systems
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Knowledge Representation
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            User Adaptive Intelligent Systems
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Artificial Intelligence
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Interactive Database Systems
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Software Systems Engineering
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Theoretical Computer Science
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Practical Problem Solving
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Core Programming
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Modelling, Analysis & Algorithm Design
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Maths for Computing
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Project Management
+                        </td>
+                        <td>
+                            1st
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Numerical Computation & Visualisation
+                        </td>
+                        <td>
+                            2:1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Professional Development
+                        </td>
+                        <td>
+                            2:1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Computer Systems
+                        </td>
+                        <td>
+                            2:1
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float : left; width: 48%">
+                <p><b>A Levels: </b></p>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            Subject
+                        </th>
+                        <th>
+                            Grade
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Computing
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Economics
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Law
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            General Studies
+                        </td>
+                        <td>
+                            A*
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mathematics (AS)
+                        </td>
+                        <td>
+                            B
+                        </td>
+                    </tr>
+                </table>
+                <br>
+
+                <p><b>GCSEs: </b></p>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            Subject
+                        </th>
+                        <th>
+                            Grade
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            English (Language & Literature)
+                        </td>
+                        <td>
+                            A & B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mathematics
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Physics
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Biology
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Chemistry
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            History
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Religious Studies
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Drama
+                        </td>
+                        <td>
+                            B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Spanish
+                        </td>
+                        <td>
+                            C
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            DT
+                        </td>
+                        <td>
+                            C
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            </div>
             </div>
         </div>
 

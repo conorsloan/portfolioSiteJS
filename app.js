@@ -58,12 +58,21 @@ var transporter = nodemailer.createTransport({
 
 // JSON API
 var api = require('./routes/api')(db, transporter);
+
+// Projects
 app.get('/api/projectinfo', api.projectInfo);
 app.get('/api/projects', api.projects);
 app.get('/api/project/:projectName', api.project);
+
+// Mailer
 app.all('/api/contact/sendMessage', api.sendMessage);
+
+// Site Content
 app.get('/api/about', api.aboutMe);
 
+// CV
+app.get('/api/cv/jobs', api.employmentHistory);
+app.get('/api/cv/tech', api.techExperience);
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -33,3 +33,18 @@ services.factory('aboutService', ['$http', function ($http) {
         }
     };
 }]);
+
+services.factory('cvService', ['$http', function ($http) {
+
+    'use strict';
+
+    return {
+        getJobs: function (callback) {
+            $http.get('/api/cv/jobs').success(callback);
+        },
+
+        getTechUsed : function (callback) {
+            $http.get('/api/cv/tech').success(callback);
+        }
+    };
+}]);
