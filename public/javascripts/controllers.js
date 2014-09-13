@@ -40,7 +40,7 @@ pageControllers.controller('ProjectController', ['$scope', '$location', 'project
 
 pageControllers.controller('CvController', ['$scope', 'cvService', function ($scope, cvService) {
     'use strict';
-    console.log('Controller: CV ');
+    console.log('Controller: CV  ');
     cvService.getJobs(function (response) {
         $scope.jobs = response.jobs;
     });
