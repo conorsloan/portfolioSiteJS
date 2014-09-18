@@ -17,10 +17,13 @@
             <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <p>Here is a short description of my previous jobs in the Software industry.</p>
-                    <div name="job" ng-repeat="job in jobs" ng-class="{ 'well' : job.currentJob}">
+                    <div name="job" ng-repeat="job in jobs"  ng-class="{ 'well' : job.currentJob}">
                         <p ng-show="job.currentJob" ><span class=" glyphicon glyphicon-asterisk" ></span> [Current Job]</p>
 
-                        <img ng-src="{{job.employerIcon}}" class="img-responsive" style="float:right; max-height:4%" >
+                        <div id="logo" style=" width: 8%; max-height: 5%; float:right; padding-bottom: 5px">
+                            <img ng-src="{{job.employerIcon}}" class="img-responsive" data-parent="#job" style=" width: 100%;" >
+                        </div>
+
                         <div class="page-header" style="margin-top: 5%; margin-bottom : 4%">
                             <h4>{{job.jobTitle}} @ {{job.company}} <small> - {{job.startDate}} to {{job.endDate}}
                                 ({{job.location}})</small></h4>
