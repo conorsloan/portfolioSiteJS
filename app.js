@@ -57,7 +57,9 @@ var transporter = nodemailer.createTransport({
 
 
 // JSON API
-var api = require('./routes/api')(db, transporter);
+var JSONStream = require('JSONStream');
+var jsonStreamResponse = require('./routes/jsonStreamResponse')(JSONStream);
+var api = require('./routes/api')(jsonStreamResponse, db, transporter);
 
 // Projects
 app.get('/api/projectinfo', api.projectInfo);

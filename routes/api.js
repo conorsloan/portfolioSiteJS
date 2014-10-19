@@ -4,12 +4,8 @@
 /*
  * Serve JSON to our AngularJS client
  */
-var JSONStream = require('JSONStream');
 
-
-
-
-module.exports = function (db, mailTransporter) {
+module.exports = function (response, db, mailTransporter) {
 
     "use strict";
 
@@ -18,26 +14,25 @@ module.exports = function (db, mailTransporter) {
         // Projects
         projectInfo: function (req, res) {
             var projectCollection = db.collection('projectInfo');
-            projectCollection.find({}).pipe(JSONStream.stringify()).pipe(res);
+            response.sendAsJsonString(projectCollection.find({}), res);
         },
 
         projects: function (req, res) {
             var projectCollection = db.collection('projects');
-            projectCollection.find({}).pipe(JSONStream.stringify()).pipe(res);
+            response.sendAsJsonString(projectCollection.find({}), res);
         },
 
         project: function (req, res) {
             var projectName = req.params.projectName,
                 projectCollection = db.collection('projects');
-
-            projectCollection.find({id: projectName}).pipe(JSONStream.stringify()).pipe(res);
+            response.sendAsJsonString(projectCollection.find({id: projectName}), res);
         },
 
 
         // Site Content
         aboutMe : function (req, res) {
             var contentCollection = db.collection('content');
-            contentCollection.find({'id' : 'about'}).pipe(JSONStream.stringify(false)).pipe(res);
+            response.sendItemAsJsonString(contentCollection.find({'id' : 'about'}), res);
         },
 
 
@@ -45,14 +40,12 @@ module.exports = function (db, mailTransporter) {
 
         employmentHistory : function (req, res) {
             var cv = db.collection('CV');
-            cv.find({'id' : 'employmentHistory'},
-                {'jobs' : 1, _id : 0}).pipe(JSONStream.stringify(false)).pipe(res);
+            response.sendItemAsJsonString(cv.find({'id' : 'employmentHistory'}, {'jobs' : 1, _id : 0}), res);
         },
 
         techExperience : function (req, res) {
             var cv = db.collection('CV');
-            cv.find({'id' : 'technologyExperience'},
-                {'techs' : 1, _id : 0}).pipe(JSONStream.stringify(false)).pipe(res);
+            response.sendItemAsJsonString(cv.find({'id' : 'technologyExperience'}, {'techs' : 1, _id : 0}), res);
         },
 
 
