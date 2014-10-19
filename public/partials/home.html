@@ -1,28 +1,35 @@
 <div class="container" role="main">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-
-    <div class="jumbotron" style="margin-top: 2%;">
-        <h2>Hi!</h2>
-        <p>Welcome, this is my portfolio website, created to provide a quick and easy way for
-        you to get to know what I'm all about. Please use the links provided to get what you are looking for!</p>
-
-
-    </div>
-
-    <!-- End Jumbotron -->
-
     <!-- Featurette -->
     <hr class="featurette-divider">
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">A little about me. <span class="text-muted">Conor Sloan</span></h2>
+            <h2 class="featurette-heading">Hi!</h2>
             <p class="lead">I'm Conor, a recently graduated Software Development Engineer for the Book Depository, an Amazon company.
-
             </p>
+            <p class="lead">Creating clean, maintainable, and scalable software is my passion.</p>
+            <p class="lead">Working in teams and solving complex problems gives me
+                a great deal of pleasure, and above all, I love to code!</p>
         </div>
         <div class="col-md-5">
             <img src="images/me.jpg" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-12">
+            <h2 class="featurette-heading">Some of my work...</h2>
+            <div class="col-md-12">
+                <slick init-onload=true data="projects" dots="true" infinite="true" responsive="breakpoints" slides-to-show=2 slides-to-scroll=2>
+                    <div ng-repeat="project in projects">
+                            <div style="max-height: 500px; padding:3%">
+                                <p class="lead"><a href="#/projects/{{project.id}}" style="text-decoration: none; color:black; font-weight: bold">{{project.name}}</a> - {{project.tagLine}}</p>
+                                <img class="img-responsive"  ng-src="{{project.smallImage}}" alt="{{project.name}}">
+                            </div>
+                    </div>
+                </slick>
+            </div>
         </div>
     </div>
     <hr class="featurette-divider">

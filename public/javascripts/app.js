@@ -9,7 +9,8 @@ angular.module('portfolioSite', [
     //'portfolioSite.filters',
     'portfolioSite.services',
     //'portfolioSite.directives',
-    'portfolioSite.controllers'
+    'portfolioSite.controllers',
+    'slick'
 ]).
     config(['$routeProvider', function ($routeProvider) {
 

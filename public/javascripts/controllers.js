@@ -6,9 +6,31 @@
 /* Page Controllers */
 var pageControllers = angular.module('portfolioSite.controllers', []);
 
-pageControllers.controller('HomeController', ['$scope', function ($scope) {
+pageControllers.controller('HomeController', ['$scope', 'projectService', function ($scope, projectService) {
     'use strict';
     console.log('Controller: Home');
+
+    // Carousel setting:
+    $scope.breakpoints = [
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ];
+
+    projectService.getAllProjects(function (projects) {
+        console.log('In the get all projects controller');
+        $scope.projects = projects;
+    });
 }]);
 
 pageControllers.controller('AboutController', ['$scope', 'aboutService', function ($scope, aboutService) {
