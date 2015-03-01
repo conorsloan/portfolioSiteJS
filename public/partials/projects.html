@@ -1,17 +1,22 @@
-<div class="container" role="main" style="margin-top: 2%">
+<div class="container" role="main">
 
     <div class="page-header">
-        <h1>Projects <small>An overview of my portfolio</small></h1>
+        <h1>Projects</h1>
+        <p class="lead">An overview of my portfolio</p>
     </div>
+
 
     <div ng-repeat="project in projects">
         <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading"><a style="text-decoration: none; color: black" href="#/projects/{{project.id}}" >{{project.name}} </a><span class="text-muted">{{project.tagLine}}</span></h2>
+            <div ng-class="'col-md-6'" ng-class-even="'col-md-push-6'">
+                <h3 class="featurette-heading"><a style="text-decoration: none; color: black" href="#/projects/{{project.id}}" >{{project.name}} </a>
+                    <span class="text-muted">{{project.tagLine}}</span></h3>
+
                 <p class="lead">{{project.shortDescription}}</p>
             </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive" ng-src="{{project.smallImage}}" alt="{{project.name}}">
+            <div class="col-md-1"></div>
+            <div ng-class="'col-md-5'" ng-class-even="'col-md-pull-7'">
+                <a href="#/projects/{{project.id}}"><img class="featurette-image img-responsive" ng-src="{{project.smallImage}}" alt="{{project.name}}"></a>
             </div>
         </div>
         <hr class="featurette-divider">
