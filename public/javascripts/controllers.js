@@ -65,9 +65,14 @@ pageControllers.controller('ProjectsController', ['$scope', 'projectService', fu
 pageControllers.controller('ProjectController', ['$scope', '$location', 'projectService', function ($scope, $location, projectService) {
     'use strict';
     console.log('Controller: Project ' + $location.path());
+
+    // Carousel
+    $scope.myInterval = 5000;
+
     var name = $location.path().split('/').slice(-1)[0];
     projectService.getProject(name, function (projects) {
         $scope.project = projects[0];
+        $scope.techUsed = $scope.project.techUsed.split(",");
     });
 }]);
 

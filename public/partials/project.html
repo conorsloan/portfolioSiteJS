@@ -1,71 +1,35 @@
-<div class="container" role="main" style="margin-top: 2%">
+<div class="container" role="main">
 
     <div class="page-header">
-        <h1>{{project.name}} <small>{{project.tagLine}}</small></h1>
-    </div>
-
-    <div id="Carousel" class="carousel slide" style="margin-bottom: 2%; height: 400px; max-height: 400px;">
-        <div class="carousel-inner" style="height: 100%" >
-            <div class="item" ng-repeat="image in project.largeImage" ng-class="{ 'active' : $index == 0 }">
-                <img ng-src="{{image}}" class="img-responsive" style="height:100%; width: 100%" >
-            </div>
-        </div>
-
-
-        <span class="left carousel-control" data-target="#Carousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </span>
-        <span class="right carousel-control" data-target="#Carousel" data-slide="next">
-           <span class="glyphicon glyphicon-chevron-right"></span>
-        </span>
+        <h1>{{project.name}} <small> - {{project.tagLine}}</small></h1>
     </div>
 
 
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseOne">
-                        Project Description
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    {{project.longDescription}}
-                </div>
-            </div>
-        </div>
+    <p class="lead">Repository URL: <a href="{{project.projectRepo}}">{{project.projectRepo}}</a></p>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-12">
+                <!-- Carousel -->
+                <carousel interval="myInterval">
+                    <slide ng-repeat="image in project.largeImage" active="slide.active">
+                        <img ng-src="{{image}}" style="margin:auto; max-height: 400px; padding:3%">
+                    </slide>
+                </carousel>
 
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseTwo">
-                        Technologies Used
-                    </a>
-                </h4>
             </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    {{project.techUsed}}
-                </div>
-            </div>
-        </div>
 
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseThree">
-                        Repository Link
-                    </a>
-                </h4>
+            <div class="col-sm-8">
+                <h3>Project Description</h3>
+                <hr class="featurette-divider">
+                {{project.longDescription}}
             </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <a href="{{project.projectRepo}}">{{project.name}}</a>
-                </div>
+
+            <div class="col-sm-4">
+                <h3>Technologies Used</h3>
+                <hr class="featurette-divider">
+                    <ul>
+                        <li ng-repeat="tech in techUsed">{{tech}}</li>
+                    </ul>
             </div>
         </div>
     </div>
