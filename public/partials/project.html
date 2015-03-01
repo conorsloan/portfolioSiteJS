@@ -21,7 +21,7 @@
             <div class="col-sm-8">
                 <h3>Project Description</h3>
                 <hr class="featurette-divider">
-                {{project.longDescription}}
+                <p ng-repeat="line in project.longDescription">{{line}}</p>
             </div>
 
             <div class="col-sm-4">
