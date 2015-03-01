@@ -5,6 +5,12 @@
     margin-top: -15px;
 }
 
+/* Homepage styles
+-------------------------------------------------- */
+
+.carousel-caption {
+    color: #000000;
+}
 
 
 /* Sticky footer styles

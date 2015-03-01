@@ -6,32 +6,39 @@
 /* Page Controllers */
 var pageControllers = angular.module('portfolioSite.controllers', []);
 
-pageControllers.controller('HomeController', ['$scope', 'projectService', function ($scope, projectService) {
-    'use strict';
-    console.log('Controller: Home');
+pageControllers.controller('HomeController', ['$scope', 'projectService', 'cvService',
+    function ($scope, projectService, cvService) {
+        'use strict';
+        console.log('Controller: Home');
 
-    // Carousel setting:
-    $scope.breakpoints = [
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ];
+        // Configure Carousel
+        $scope.myInterval = 5000;
+        $scope.slides = [];
+        $scope.addSlide = function (name, url, tagline) {
+            $scope.slides.push({
+                image: url,
+                title: name,
+                text: tagline
+            });
+        };
 
-    projectService.getAllProjects(function (projects) {
-        console.log('In the get all projects controller');
-        $scope.projects = projects;
-    });
-}]);
+        projectService.getAllProjects(function (projects) {
+            console.log('In the get all projects controller');
+            $scope.projects = projects;
+            projects.forEach(function (project) {
+                $scope.addSlide(project.name, project.smallImage, project.tagLine);
+            });
+        });
+
+        // Configure 'at a glance'
+        $scope.atAGlanceItem = false;
+        cvService.getAtAGlanceContent(function (atAGlanceContent) {
+            $scope.atAGlanceItems = atAGlanceContent.items;
+            $scope.showAtAGlanceContent = function (contentId) {
+                $scope.atAGlanceItem = contentId === -1 ? false : $scope.atAGlanceItems[contentId];
+            };
+        });
+    }]);
 
 pageControllers.controller('AboutController', ['$scope', 'aboutService', function ($scope, aboutService) {
     'use strict';
@@ -104,6 +111,12 @@ pageControllers.controller('ContactController', ['$scope', '$http', function ($s
 function HeaderController($scope, $location, projectService) {
     'use strict';
 
+    $scope.navbarCollapsed = true;
+
+    $scope.$on('$routeChangeStart', function (next, current) {
+        $scope.navbarCollapsed = true;
+    });
+
     // Allow correct navbar item to be selected
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
@@ -113,4 +126,6 @@ function HeaderController($scope, $location, projectService) {
     projectService.getProjectInfo(function (projects) {
         $scope.projects = projects;
     });
+
+
 }

@@ -48,6 +48,11 @@ module.exports = function (response, db, mailTransporter) {
             response.sendItemAsJsonString(cv.find({'id' : 'technologyExperience'}, {'techs' : 1, _id : 0}), res);
         },
 
+        atAGlanceContent : function (req, res) {
+            var cv = db.collection('CV');
+            response.sendItemAsJsonString(cv.find({'id' : 'atAGlanceContent'}, {'items' : 1, _id : 0}), res);
+        },
+
 
         // Send an email message, given the message submitted on the site
         sendMessage : function (req, res) {

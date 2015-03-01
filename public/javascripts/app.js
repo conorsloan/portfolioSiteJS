@@ -10,7 +10,7 @@ angular.module('portfolioSite', [
     'portfolioSite.services',
     //'portfolioSite.directives',
     'portfolioSite.controllers',
-    'slick'
+    'ui.bootstrap'
 ]).
     config(['$routeProvider', function ($routeProvider) {
 

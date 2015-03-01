@@ -8,27 +8,31 @@ var sinon = require('sinon');
 
 describe('api', function(){
 
-    var requestStub, responseStub, dbStub, dbCollectionStub, mailStub;
+    var requestStub, responseStub, dbStub, dbCollectionStub, mailStub, jsonStreamResponseStub;
 
     before(function() {
-        requestStub = sinon.stub();
-        responseStub = sinon.stub();
-        dbStub = sinon.stub();
-        mailStub = sinon.stub();
-        dbCollectionStub = sinon.stub();
+
     });
 
     afterEach(function() {
-        requestStub.reset();
-        responseStub.reset();
-        dbCollectionStub.reset();
-        dbStub.reset();
-        mailStub.reset();
+
     });
 
     describe('#projectInfo()', function(){
         it('should return project info from the database', function(){
 
+            requestStub = sinon.stub();
+            responseStub = sinon.stub();
+            dbStub = sinon.stub();
+            jsonStreamResponseStub = sinon.stub();
+            mailStub = sinon.stub();
+            dbCollectionStub = sinon.stub();
+
+
+            var theApi = api(jsonStreamResponseStub, dbStub, mailStub);
+            dbStub = sinon.stub("collection");
+            dbStub.onCall(0).returns(dbCollectionStub);
+            theApi.projectInfo(requestStub, responseStub);
         });
     });
 

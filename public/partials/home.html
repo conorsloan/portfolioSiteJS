@@ -1,36 +1,50 @@
 <div class="container" role="main">
 
-    <!-- Featurette -->
-    <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">Hi!</h2>
-            <p class="lead">I'm Conor, a recently graduated Software Development Engineer for the Book Depository, an Amazon company.
-            </p>
-            <p class="lead">Creating clean, maintainable, and scalable software is my passion.</p>
-            <p class="lead">Working in teams and solving complex problems gives me
-                a great deal of pleasure, and above all, I love to code!</p>
-        </div>
-        <div class="col-md-5">
-            <img src="images/me.jpg" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500">
-        </div>
+    <div class="page-header">
+        <h1>Conor Sloan | Software Developer</h1>
+        <p class="lead">Currently an SDE @ The Book Depository, an Amazon Company.</p>
     </div>
-    <hr class="featurette-divider">
 
-    <div class="row featurette">
-        <div class="col-md-12">
-            <h2 class="featurette-heading">Some of my work...</h2>
-            <div class="col-md-12">
-                <slick init-onload=true data="projects" dots="true" infinite="true" responsive="breakpoints" slides-to-show=2 slides-to-scroll=2>
-                    <div ng-repeat="project in projects">
-                            <div style="max-height: 500px; padding:3%">
-                                <p class="lead"><a href="#/projects/{{project.id}}" style="text-decoration: none; color:black; font-weight: bold">{{project.name}}</a> - {{project.tagLine}}</p>
-                                <img class="img-responsive"  ng-src="{{project.smallImage}}" alt="{{project.name}}">
+    <div class="col-md-5">
+        <h3>Career at a Glance</h3>
+        <hr class="featurette-divider">
+
+        <ul class="list-group">
+            <a ng-repeat="item in atAGlanceItems" class="list-group-item" ng-click="showAtAGlanceContent($index)">{{item.title}}</a>
+        </ul>
+
+        <div class="panel panel-default" ng-show="atAGlanceItem">
+            <div class="panel-body">
+
+                <div style="float: right" >
+                    <span ng-click="showAtAGlanceContent(-1)" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </div>
+
+                <h4>{{atAGlanceItem.title}}</h4>
+                <p ng-repeat="line in atAGlanceItem.content">{{line}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-7">
+        <h3>Some of my work...</h3>
+        <hr class="featurette-divider">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div style="height: 405px">
+                    <carousel interval="myInterval">
+                        <slide ng-repeat="slide in slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="margin:auto; max-height: 400px; padding:3%">
+                            <div class="carousel-caption">
+                                <h4>{{slide.title}}</h4>
+                                <p>{{slide.text}}</p>
                             </div>
-                    </div>
-                </slick>
+                        </slide>
+                    </carousel>
+                </div>
             </div>
         </div>
     </div>
-    <hr class="featurette-divider">
 </div>

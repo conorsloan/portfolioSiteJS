@@ -3,6 +3,7 @@
  */
 
 module.exports = function (JSONStream) {
+    'use strict';
     return {
 
         sendAsJsonString : function (data, res) {
@@ -13,5 +14,5 @@ module.exports = function (JSONStream) {
             data.pipe(JSONStream.stringify(false)).pipe(res);
         }
 
-    }
-}
+    };
+};

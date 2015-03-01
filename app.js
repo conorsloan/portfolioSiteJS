@@ -75,6 +75,7 @@ app.get('/api/about', api.aboutMe);
 // CV
 app.get('/api/cv/jobs', api.employmentHistory);
 app.get('/api/cv/tech', api.techExperience);
+app.get('/api/cv/atAGlanceContent', api.atAGlanceContent);
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {

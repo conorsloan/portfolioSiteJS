@@ -45,6 +45,10 @@ services.factory('cvService', ['$http', function ($http) {
 
         getTechUsed : function (callback) {
             $http.get('/api/cv/tech').success(callback);
+        },
+
+        getAtAGlanceContent: function (callback) {
+            $http.get('/api/cv/atAGlanceContent').success(callback);
         }
     };
 }]);
