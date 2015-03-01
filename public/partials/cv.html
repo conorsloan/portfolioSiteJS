@@ -41,8 +41,12 @@
 
         <accordion-group is-open="status.isTechExpOpen">
             <accordion-heading>Technology Experience <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isTechExpOpen, 'glyphicon-chevron-right': !status.isTechExpOpen}"></i></accordion-heading>
-            <div name="tech" ng-repeat="tech in techsUsed" style="float : left; margin: 10px">
-                <p><b>{{tech.name}}</b> -  {{tech.description}}</p>
+            <div name="tech" ng-repeat="tech in techsUsed" style="float : left; margin: 10px" class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class ="panel-body">
+                            <p><b>{{tech.name}}</b></p> <p>{{tech.description}}</p>
+                        </div>
+                    </div>
             </div>
         </accordion-group>
 
