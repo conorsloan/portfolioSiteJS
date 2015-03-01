@@ -1,79 +1,49 @@
 <div class="container" role="main" style="margin-top: 2%">
 
-    <div class="page-header">
-        <h1>CV <small>My experience & qualifications</small></h1>
-    </div>
 
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="status.isCareerOpen">
+            <accordion-heading>Career<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCareerOpen, 'glyphicon-chevron-right': !status.isCareerOpens}"></i></accordion-heading>
+            <div class="panel-body">
+                <p>Here is a short description of my previous jobs in the Software industry.</p>
+                <div name="job" ng-repeat="job in jobs"  ng-class="{ 'well' : job.currentJob}">
+                    <p ng-show="job.currentJob" ><span class=" glyphicon glyphicon-asterisk" ></span> [Current Job]</p>
 
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseOne">
-                        Career
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <p>Here is a short description of my previous jobs in the Software industry.</p>
-                    <div name="job" ng-repeat="job in jobs"  ng-class="{ 'well' : job.currentJob}">
-                        <p ng-show="job.currentJob" ><span class=" glyphicon glyphicon-asterisk" ></span> [Current Job]</p>
-
-                        <div id="logo" style=" width: 8%; max-height: 5%; float:right; padding-bottom: 5px">
-                            <img ng-src="{{job.employerIcon}}" class="img-responsive" data-parent="#job" style=" width: 100%;" >
-                        </div>
-
-                        <div class="page-header" style="margin-top: 5%; margin-bottom : 4%">
-                            <h4>{{job.jobTitle}} @ {{job.company}} <small> - {{job.startDate}} to {{job.endDate}}
-                                ({{job.location}})</small></h4>
-                        </div>
-                        <p>
-                            <b>Description:</b><br>
-                            {{job.description}}
-                        </p>
-                        <p>
-                            <b>Responsibilities:</b><br>
-                            <ul>
-                                <li ng-repeat="responsibility in job.responsibilities">{{responsibility}}</li>
-                            </ul>
-                        </p>
-                        <p>
-                            <b>Tech Used:</b><br>
-                            {{job.techUsed}}
-                        </p>
+                    <div id="logo" style=" width: 8%; max-height: 5%; float:right; padding-bottom: 5px">
+                        <img ng-src="{{job.employerIcon}}" class="img-responsive" data-parent="#job" style=" width: 100%;" >
                     </div>
+
+                    <div class="page-header" style="margin-top: 5%; margin-bottom : 4%">
+                        <h4>{{job.jobTitle}} @ {{job.company}} <small> - {{job.startDate}} to {{job.endDate}}
+                            ({{job.location}})</small></h4>
+                    </div>
+                    <p>
+                        <b>Description:</b><br>
+                        {{job.description}}
+                    </p>
+                    <p>
+                        <b>Responsibilities:</b><br>
+                    <ul>
+                        <li ng-repeat="responsibility in job.responsibilities">{{responsibility}}</li>
+                    </ul>
+                    </p>
+                    <p>
+                        <b>Tech Used:</b><br>
+                        {{job.techUsed}}
+                    </p>
                 </div>
             </div>
-        </div>
+        </accordion-group>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseTwo">
-                        Technology Experience
-                    </a>
-                </h4>
+        <accordion-group is-open="status.isTechExpOpen">
+            <accordion-heading>Technology Experience <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isTechExpOpen, 'glyphicon-chevron-right': !status.isTechExpOpen}"></i></accordion-heading>
+            <div name="tech" ng-repeat="tech in techsUsed" style="float : left; margin: 10px">
+                <p><b>{{tech.name}}</b> -  {{tech.description}}</p>
             </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div name="tech" ng-repeat="tech in techsUsed" style="float : left; margin: 10px">
-                        <p><b>{{tech.name}}</b> -  {{tech.description}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </accordion-group>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseThree">
-                        Education / Qualifications
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body" class="col-md-12">
+        <accordion-group is-open="status.isEducationOpen">
+            <accordion-heading>Education / Qualifications <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isEducationOpen, 'glyphicon-chevron-right': !status.isEducationOpen}"></i></accordion-heading>
             <div class="col-md-6">
                 <p><b>University: </b></p>
                 <table class="table table-bordered" style="width : 100%">
@@ -385,27 +355,14 @@
                     </tr>
                 </table>
             </div>
+        </accordion-group>
 
-            </div>
-            </div>
-        </div>
+        <accordion-group is-open="status.isFullCvOpen">
+            <accordion-heading>Full CV (PDF)<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isFullCvOpen, 'glyphicon-chevron-right': !status.isFullCvOpen}"></i></accordion-heading>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapseFour">
-                        Full CV (PDF)
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <iframe src="https://docs.google.com/file/d/0B2HMk1AmTvyAYUFySGE2bFBrYk0/?embedded=true" width="100%" height="600"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+            <!-- Google docs embed -->
+            <iframe src="https://docs.google.com/viewer?srcid=0B2HMk1AmTvyAcTl6N3kzWXVoNEE&pid=explorer&efh=false&a=v&chrome=false&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
+        </accordion-group>
+    </accordion>
 
 </div>

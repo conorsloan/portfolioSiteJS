@@ -74,6 +74,22 @@ pageControllers.controller('ProjectController', ['$scope', '$location', 'project
 pageControllers.controller('CvController', ['$scope', 'cvService', function ($scope, cvService) {
     'use strict';
     console.log('Controller: CV ');
+
+    // Configure accordion
+    /**
+     * Career
+     * Technology Experience
+     * Education
+     * CV
+     */
+    $scope.oneAtATime = true;
+    $scope.status = {
+        isCareerOpen: true,
+        isTechExpOpen: false,
+        isEducationOpen: false,
+        isFullCvOpen: false
+    };
+
     cvService.getJobs(function (response) {
         $scope.jobs = response.jobs.sort(function (a, b) {
             if (a.position > b.position) {
