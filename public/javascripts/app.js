@@ -10,7 +10,8 @@ angular.module('portfolioSite', [
     'portfolioSite.services',
     //'portfolioSite.directives',
     'portfolioSite.controllers',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngTouch'
 ]).
     config(['$routeProvider', function ($routeProvider) {
 
