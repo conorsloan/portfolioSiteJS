@@ -43,6 +43,10 @@ pageControllers.controller('HomeController', ['$scope', 'projectService', 'cvSer
 pageControllers.controller('AboutController', ['$scope', 'aboutService', function ($scope, aboutService) {
     'use strict';
     console.log('Controller: About');
+
+    // Configure Carousel
+    $scope.myInterval = 5000;
+
     aboutService.getAboutMe(function (aboutMe) {
         console.log('About Me');
         $scope.aboutMe = aboutMe.content || ["Data not found, sorry!"];

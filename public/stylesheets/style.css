@@ -1,3 +1,5 @@
+.ng-cloak { display:none; }
+
 .navbar-brand {
     max-width: 50%;
     max-height: 50px;

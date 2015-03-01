@@ -5,32 +5,35 @@
 
     <div class="col-md-12">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-md-push-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <!-- Carousel -->
+                        <div style="height: 405px">
+                            <carousel interval="myInterval">
+                                <slide active="slide.active">
+                                    <img ng-src="images/about/about1.png" style="margin:auto; max-height: 400px; padding:3%">
+                                </slide>
+                                <slide>
+                                    <img ng-src="images/about/about2.png" style="margin:auto; max-height: 400px; padding:3%">
+                                </slide>
+                                <slide>
+                                    <img ng-src="images/about/about3.png" style="margin:auto; max-height: 400px; padding:3%">
+                                </slide>
+                            </carousel>
+                        </div>
+
+                       </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-pull-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p ng-repeat="line in aboutMe" >{{line}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-
-                            <slick style="width: 100%; margin: 0 auto">
-                                <div class="item active">
-                                    <img src="images/about/about1.png" class="img-responsive" >
-                                </div>
-                                <div class="item">
-                                    <img src="images/about/about2.png" class="img-responsive" >
-                                </div>
-                                <div class="item">
-                                    <img src="images/about/about3.png" class="img-responsive" >
-                                </div>
-                            </slick>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
